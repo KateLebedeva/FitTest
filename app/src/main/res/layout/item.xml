@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name = "viewModel"
+            type = "com.kate_lebedeva.assingment.viewmodels.DataItemViewModel"/>
+        <variable
+            name="position"
+            type="java.lang.Integer" />
+
+    </data>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/versionItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?android:attr/selectableItemBackground"
+        >
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{viewModel.drawable}"
+            android:scaleType="fitCenter"
+            app:riv_corner_radius="15dip"
+            app:riv_mutate_background="true"
+            app:riv_tile_mode="repeat"
+            android:padding="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toEndOf="@+id/photo"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{viewModel.title}"
+            android:typeface="sans"
+            android:textSize="17sp"
+            android:textColor="@color/colorBlack"
+            tools:text="Bob"/>
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/photo"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            android:text="@{viewModel.subtitle}"
+            android:textSize="13sp"
+            tools:text="Marshmallow"/>
+        <TextView
+            android:id="@+id/amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:padding="30dp"
+            android:text="@{viewModel.amount}"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlue"
+            tools:text="2600"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
